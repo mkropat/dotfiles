@@ -1,0 +1,145 @@
+# Default preset
+
+RequireAdmin
+
+### Privacy Tweaks ###
+DisableTelemetry
+DisableWiFiSense
+DisableSmartScreen
+DisableWebSearch
+DisableAppSuggestions
+DisableActivityHistory
+DisableBackgroundApps
+DisableLocationTracking
+DisableMapUpdates
+DisableFeedback
+DisableTailoredExperiences
+DisableAdvertisingID
+DisableWebLangList
+DisableCortana
+DisableErrorReporting
+# SetP2PUpdateLocal
+DisableDiagTrack
+DisableWAPPush
+
+### Security Tweaks ###
+SetUACHigh
+DisableSharingMappedDrives
+DisableAdminShares
+DisableSMB1
+DisableSMBServer
+DisableLLMNR
+DisableNCSIProbe
+SetCurrentNetworkPrivate
+SetUnknownNetworksPrivate
+# DisableNetDevicesAutoInst
+# EnableCtrldFolderAccess
+EnableFirewall
+EnableDefender
+DisableDefenderCloud
+EnableF8BootMenu
+SetDEPOptOut
+EnableCIMemoryIntegrity
+DisableScriptHost
+EnableDotNetStrongCrypto
+# EnableMeltdownCompatFlag
+
+### Service Tweaks ###
+DisableUpdateMSRT
+EnableUpdateDriver
+DisableUpdateRestart
+DisableHomeGroups
+DisableSharedExperiences
+DisableRemoteAssistance
+EnableRemoteDesktop
+DisableAutoplay
+DisableAutorun
+# EnableStorageSense
+EnableDefragmentation
+# DisableSuperfetch
+EnableIndexing
+SetBIOSTimeUTC
+# EnableHibernation
+# DisableSleepButton
+# DisableSleepTimeout
+EnableFastStartup
+
+### UI Tweaks ###
+DisableActionCenter
+HideAccountProtectionWarn
+DisableLockScreen
+HideNetworkFromLockScreen
+HideShutdownFromLockScreen
+DisableStickyKeys
+ShowTaskManagerDetails
+ShowFileOperationsDetails
+DisableFileDeleteConfirm
+HideTaskbarSearch
+HideTaskView
+ShowLargeTaskbarIcons
+SetTaskbarCombineWhenFull
+HideTaskbarPeopleIcon
+HideTrayIcons
+DisableSearchAppInStore
+DisableNewAppPrompt
+SetControlPanelCategories
+SetVisualFXPerformance
+SetSoundSchemeNone
+DisableStartupSound
+
+### Explorer UI Tweaks ###
+ShowKnownExtensions
+ShowHiddenFiles
+ShowSelectCheckboxes
+HideSyncNotifications
+HideRecentShortcuts
+SetExplorerThisPC
+ShowQuickAccess
+HideThisPCFromDesktop
+HideUserFolderFromDesktop
+HideDesktopFromThisPC
+# HideDesktopFromExplorer
+# HideDocumentsFromThisPC
+# HideDocumentsFromExplorer
+# HideDownloadsFromThisPC
+# HideDownloadsFromExplorer
+HideMusicFromThisPC
+# HideMusicFromExplorer
+HidePicturesFromThisPC
+# HidePicturesFromExplorer
+HideVideosFromThisPC
+# HideVideosFromExplorer
+Hide3DObjectsFromThisPC
+# Hide3DObjectsFromExplorer
+# DisableThumbnails
+DisableThumbnailCache
+DisableThumbsDBOnNetwork
+
+### Application Tweaks ###
+DisableOneDrive
+UninstallOneDrive
+UninstallMsftBloat
+UninstallThirdPartyBloat
+# UninstallWindowsStore
+DisableXboxFeatures
+DisableAdobeFlash
+DisableEdgeShortcutCreation
+# UninstallMediaPlayer
+# UninstallInternetExplorer
+# UninstallWorkFolders
+InstallLinuxSubsystem
+# InstallHyperV
+SetPhotoViewerAssociation
+AddPhotoViewerOpenWith
+# UninstallPDFPrinter
+UninstallXPSPrinter
+RemoveFaxPrinter
+# UninstallFaxAndScan
+
+### Unpinning ###
+# UnpinStartMenuTiles
+# UnpinTaskbarIcons
+
+### Auxiliary Functions ###
+WaitForKey
+Restart
