@@ -43,7 +43,7 @@ $url = 'https://raw.githubusercontent.com/mkropat/PSSnippets/master/Setup/Win10/
 ### Git
 
 ```powershell
-$url = 'https://raw.githubusercontent.com/mkropat/PSSnippets/master/Setup/Win10/Set-GitConfig.ps1'
+$url = 'https://raw.githubusercontent.com/mkropat/PSSnippets/master/Setup/Dev/Set-GitConfig.ps1'
 (New-Object Net.WebClient).DownloadString($url) | Out-File "$env:TEMP\$(Split-Path -Leaf $url)"
 & "$env:TEMP\$(Split-Path -Leaf $url)" -Name 'Michael Kropat' -Email 'mail@michael.kropat.name'
 ```
