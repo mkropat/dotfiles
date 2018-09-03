@@ -15,7 +15,6 @@ $software= @"
 ag
 cyberduck
 firefox
-git
 googlechrome
 jq
 libreoffice-fresh
