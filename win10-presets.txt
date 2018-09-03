@@ -48,7 +48,7 @@ EnableDotNetStrongCrypto
 DisableUpdateMSRT
 EnableUpdateDriver
 DisableUpdateRestart
-DisableHomeGroups
+# DisableHomeGroups
 DisableSharedExperiences
 DisableRemoteAssistance
 EnableRemoteDesktop
