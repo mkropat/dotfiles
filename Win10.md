@@ -40,6 +40,14 @@ $url = 'https://raw.githubusercontent.com/mkropat/PSSnippets/master/Setup/Win10/
 & "$env:TEMP\$(Split-Path -Leaf $url)" -ScriptUrl 'https://raw.githubusercontent.com/mkropat/dotfiles/master/mlk.ahk'
 ```
 
+### Git
+
+```powershell
+$url = 'https://raw.githubusercontent.com/mkropat/PSSnippets/master/Setup/Win10/Set-GitConfig.ps1'
+(New-Object Net.WebClient).DownloadString($url) | Out-File "$env:TEMP\$(Split-Path -Leaf $url)"
+& "$env:TEMP\$(Split-Path -Leaf $url)" -Name 'Michael Kropat' -Email 'mail@michael.kropat.name'
+```
+
 ### Vim
 
 ```powershell
