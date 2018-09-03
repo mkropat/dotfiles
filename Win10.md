@@ -1,3 +1,12 @@
+### Disassembler0
+
+```powershell
+$url = 'https://raw.githubusercontent.com/mkropat/PSSnippets/master/Setup/Win10/Set-Win10Config.ps1'
+$presetUrl = 'https://raw.githubusercontent.com/mkropat/dotfiles/master/win10-presets.txt'
+(New-Object Net.WebClient).DownloadString($url) | Out-File "$env:TEMP\$(Split-Path -Leaf $url)"
+& "$env:TEMP\$(Split-Path -Leaf $url)" -PresetUrl $presetUrl
+```
+
 ### Software
 
 ```powershell
