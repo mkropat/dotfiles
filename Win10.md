@@ -18,7 +18,6 @@ synctrayzor
 vlc
 "@
 
-
 $url = 'https://raw.githubusercontent.com/mkropat/PSSnippets/master/Setup/Win10/Install-Software.ps1'
 (New-Object Net.WebClient).DownloadString($url) | Out-File "$env:TEMP\$(Split-Path -Leaf $url)"
 & "$env:TEMP\$(Split-Path -Leaf $url)" -Software ($software -split "`n")
