@@ -4,6 +4,10 @@
 Set-ExecutionPolicy RemoteSigned -Force
 ```
 
+### Manual Pre-Configuration
+
+- Turn on BitLocker
+
 ### Disassembler0
 
 ```powershell
