@@ -1,3 +1,9 @@
+### Pre-Requisites
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Force
+```
+
 ### Disassembler0
 
 ```powershell
