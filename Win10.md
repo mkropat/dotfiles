@@ -17,6 +17,14 @@ $presetUrl = 'https://raw.githubusercontent.com/mkropat/dotfiles/master/win10-pr
 & "$env:TEMP\$(Split-Path -Leaf $url)" -PresetUrl $presetUrl
 ```
 
+Unpin initial junk:
+
+```powershell
+$url = 'https://raw.githubusercontent.com/mkropat/PSSnippets/master/Setup/Win10/Set-Win10Config.ps1'
+(New-Object Net.WebClient).DownloadString($url) | Out-File "$env:TEMP\$(Split-Path -Leaf $url)"
+& "$env:TEMP\$(Split-Path -Leaf $url)" UnpinStartMenuTiles UnpinTaskbarIcons
+```
+
 ### Software
 
 ```powershell
