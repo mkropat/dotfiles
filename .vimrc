@@ -17,7 +17,7 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 try
-    set guifont=IBM_Plex_Mono:h10:cANSI:qDRAFT
+    set guifont=IBM\ Plex\ Mono,IBM_Plex_Mono:h10:cANSI:qDRAFT
 catch /^E596/
     "oh well
 endtry
