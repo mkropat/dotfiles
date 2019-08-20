@@ -13,7 +13,9 @@ if !exists('g:vimplugins')
   let g:vimplugins = g:vimrc
 endif
 
-let g:ackprg = 'rg --vimgrep'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+endif
 
 let g:tt_use_defaults = 1
 let g:tt_taskfile = '~/Documents/tasks.md'
