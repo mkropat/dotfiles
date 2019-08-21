@@ -25,6 +25,6 @@ for s:url in split(s:repos)
   let s:name = fnamemodify(s:url, ':t:r')
   let s:repodir = s:plugdir . '/' . s:name
   if !isdirectory(s:repodir)
-    execute 'silent !git' 'clone' '--' shellescape(s:url) shellescape(s:repodir)
+    execute 'silent' '!git' 'clone' '--' shellescape(s:url) shellescape(s:repodir)
   endif
 endfor
