@@ -1,3 +1,9 @@
+" plugins.vim - Install a list of vim plugins
+"
+" 1. Save this file
+" 2. Open it in vim
+" 3. Execute `:so %`
+
 let s:repos = '
 \ https://github.com/dense-analysis/ale.git
 \ https://github.com/jlanzarotta/bufexplorer.git
