@@ -12,7 +12,6 @@ let s:repos = '
 \ https://github.com/justinmk/vim-gtfo.git
 \ https://github.com/mileszs/ack.vim.git
 \ https://github.com/mkropat/vim-dwiw2015.git
-\ https://github.com/tpope/vim-fugitive.git
 \ https://github.com/tpope/vim-projectionist.git
 \ https://github.com/tpope/vim-sensible.git
 \ https://github.com/tpope/vim-sleuth.git
