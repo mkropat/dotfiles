@@ -25,10 +25,10 @@ if has('win32')
 endif
 
 try
-    unmap <C-f>
-    unmap! <C-f>
+  unmap <C-f>
+  unmap! <C-f>
 catch
-    " oh well
+  " oh well
 endtry
 
 nnoremap <C-@> :Files<CR>
@@ -73,14 +73,14 @@ function! Z(...)
 endfunction
 
 try
-    colorscheme solarized
-    set background=light
+  colorscheme solarized
+  set background=light
 catch /^Vim\%((\a\+)\)\=:E185/
-    " oh well
+  " oh well
 endtry
 
 try
-    set guifont=IBM\ Plex\ Mono\ 11,IBM_Plex_Mono:h10:cANSI:qDRAFT
+  set guifont=IBM\ Plex\ Mono\ 11,IBM_Plex_Mono:h10:cANSI:qDRAFT
 catch /^E596/
-    "oh well
+  "oh well
 endtry
