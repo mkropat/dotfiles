@@ -73,8 +73,7 @@ function! Z(...)
 endfunction
 
 try
-  colorscheme solarized
-  set background=light
+  colorscheme gruvbox
 catch /^Vim\%((\a\+)\)\=:E185/
   " oh well
 endtry
