@@ -58,6 +58,8 @@ nnoremap <Leader>3 :set foldlevel=3<cr>
 nnoremap <Leader>4 :set foldlevel=4<cr>
 nnoremap <Leader>0 :set foldlevel=99<cr>
 
+set clipboard=unnamed,unnamedplus
+
 autocmd FileType html nnoremap <buffer> gob :call system('xdg-open ' . expand('%:S'))<cr>
 
 " Z - cd to recent / frequent directories
