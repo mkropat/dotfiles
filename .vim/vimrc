@@ -52,6 +52,9 @@ nnoremap <silent> <CR> :wall <Bar> :TestFile<CR>
 autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
 autocmd BufReadPost * if &buftype ==# 'quickfix' | nnoremap <buffer> <CR> <CR> | endif
 
+nnoremap <LocalLeader>tf :silent! wa <bar> :TestFile<CR>
+nnoremap <LocalLeader>ts :silent! wa <bar> :TestNearest<CR>
+
 set foldlevel=99
 set foldmethod=indent
 nnoremap <Leader>1 :set foldlevel=1<cr>
