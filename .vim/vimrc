@@ -86,8 +86,12 @@ catch /^Vim\%((\a\+)\)\=:E185/
   " oh well
 endtry
 
-try
-  set guifont=IBM\ Plex\ Mono\ 11,IBM_Plex_Mono:h10:cANSI:qDRAFT
-catch /^E596/
-  "oh well
-endtry
+if exists(":VimRSetFontAndSize")
+  VimRSetFontAndSize "IBM Plex Mono", 12
+else
+  try
+    set guifont=IBM\ Plex\ Mono\ 11,IBM_Plex_Mono:h10:cANSI:qDRAFT
+  catch /^E596/
+    "oh well
+  endtry
+endif
