@@ -26,6 +26,8 @@ if has('win32')
   let g:gtfo#terminals = { 'win': 'powershell -NoLogo -NoExit -Command' }
 endif
 
+let g:ale_linters = {'clojure': ['clj-kondo']}
+
 try
   unmap <C-f>
   unmap! <C-f>
@@ -58,6 +60,8 @@ nnoremap <Leader>3 :set foldlevel=3<cr>
 nnoremap <Leader>4 :set foldlevel=4<cr>
 nnoremap <Leader>0 :set foldlevel=99<cr>
 
+nnoremap <Leader>d "=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>P
+
 set clipboard=unnamed,unnamedplus
 
 autocmd FileType html nnoremap <buffer> gob :call system('xdg-open ' . expand('%:S'))<cr>
@@ -72,7 +76,7 @@ function! Z(...)
   let path = system(cmd)
   if isdirectory(path)
     echo path
-    exec 'cd' fnameescape(path)
+    exec 'lcd' fnameescape(path)
   endif
 endfunction
 
