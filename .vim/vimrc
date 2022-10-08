@@ -44,6 +44,8 @@ xnoremap gs <plug>(GrepperOperator)
 nnoremap gx :Dirvish %:p:h<CR>
 nnoremap g. :execute 'edit' g:vimrc<CR>
 nnoremap g/ :execute 'edit' g:vimplugins<CR>
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
 autocmd BufReadPost * if expand('%') ==# g:vimrc | nnoremap <buffer> <CR> :update <Bar> source %<CR> | endif
 nnoremap <C-^> :A<CR>
 
