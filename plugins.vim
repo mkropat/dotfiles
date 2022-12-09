@@ -1,4 +1,4 @@
-" plugins.vim - Install a list of vim plugins
+" plugins.vim - Install/update a list of vim plugins
 "
 " 1. Save this file
 " 2. Open it in vim
@@ -7,10 +7,11 @@
 let s:repos = '
 \ https://github.com/dense-analysis/ale.git
 \ https://github.com/jlanzarotta/bufexplorer.git
+\ https://github.com/junegunn/fzf.git
 \ https://github.com/junegunn/fzf.vim.git
 \ https://github.com/justinmk/vim-dirvish.git
 \ https://github.com/justinmk/vim-gtfo.git
-\ https://github.com/mileszs/ack.vim.git
+\ https://github.com/mhinz/vim-grepper.git
 \ https://github.com/mkropat/vim-dwiw2015.git
 \ https://github.com/morhetz/gruvbox.git
 \ https://github.com/tpope/vim-projectionist.git
@@ -30,7 +31,9 @@ endif
 for s:url in split(s:repos)
   let s:name = fnamemodify(s:url, ':t:r')
   let s:repodir = s:plugdir . '/' . s:name
-  if !isdirectory(s:repodir)
+  if isdirectory(s:repodir)
+    execute 'silent' '!git' 'pull' '--ff-only'
+  else
     execute 'silent' '!git' 'clone' '--' shellescape(s:url) shellescape(s:repodir)
   endif
 endfor
