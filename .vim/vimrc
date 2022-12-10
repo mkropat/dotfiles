@@ -29,6 +29,8 @@ endif
 
 let g:ale_linters = {'clojure': ['clj-kondo']}
 
+let g:zoxide_hook = 'pwd'
+
 try
   unmap <C-f>
   unmap! <C-f>
@@ -39,6 +41,7 @@ endtry
 nnoremap <C-@> :Files<CR>
 nnoremap <C-Space> :Files<CR>
 nnoremap gb :BufExplorer<CR>
+nnoremap gc :Lzi<CR>
 nnoremap gs <plug>(GrepperOperator)
 xnoremap gs <plug>(GrepperOperator)
 nnoremap gx :Dirvish %:p:h<CR>
@@ -71,20 +74,6 @@ nnoremap <Leader>d "=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>P
 set clipboard=unnamed,unnamedplus
 
 autocmd FileType html nnoremap <buffer> gob :call system('xdg-open ' . expand('%:S'))<cr>
-
-" Z - cd to recent / frequent directories
-command! -nargs=* Z :call Z(<f-args>)
-function! Z(...)
-  let cmd = 'fasd -d -e printf'
-  for arg in a:000
-    let cmd = cmd . ' ' . arg
-  endfor
-  let path = system(cmd)
-  if isdirectory(path)
-    echo path
-    exec 'lcd' fnameescape(path)
-  endif
-endfunction
 
 try
   colorscheme gruvbox

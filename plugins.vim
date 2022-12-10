@@ -14,6 +14,7 @@ let s:repos = '
 \ https://github.com/mhinz/vim-grepper.git
 \ https://github.com/mkropat/vim-dwiw2015.git
 \ https://github.com/morhetz/gruvbox.git
+\ https://github.com/nanotee/zoxide.vim.git
 \ https://github.com/tpope/vim-projectionist.git
 \ https://github.com/tpope/vim-sensible.git
 \ https://github.com/tpope/vim-sleuth.git
