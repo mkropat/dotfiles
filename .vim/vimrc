@@ -85,7 +85,7 @@ if exists(":VimRSetFontAndSize")
   VimRSetFontAndSize "IBM Plex Mono", 12
 else
   try
-    set guifont=IBM\ Plex\ Mono\ 11,IBM_Plex_Mono:h10:cANSI:qDRAFT
+    set guifont=IBM\ Plex\ Mono:h11
   catch /^E596/
     "oh well
   endtry
