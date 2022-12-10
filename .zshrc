@@ -9,3 +9,6 @@ prompt pure
 if command -v zoxide >/dev/null; then
   eval "$(zoxide init zsh)"
 fi
+
+bindkey '^N' history-beginning-search-forward
+bindkey '^P' history-beginning-search-backward
