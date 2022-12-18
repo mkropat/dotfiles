@@ -1,5 +1,9 @@
 export PATH="$HOME/.local/bin:$PATH"
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
 if command -v nvim >/dev/null; then
   export EDITOR=nvim
 fi
