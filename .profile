@@ -4,6 +4,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+alias be="bundle exec"
+
 if command -v nvim >/dev/null; then
   export EDITOR=nvim
 fi
