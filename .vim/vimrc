@@ -59,6 +59,8 @@ nnoremap <silent> <CR> :wall <Bar> :TestFile<CR>
 autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
 autocmd BufReadPost * if &buftype ==# 'quickfix' | nnoremap <buffer> <CR> <CR> | endif
 
+autocmd FileType markdown setlocal spell
+
 nnoremap <LocalLeader>tf :silent! wa <bar> :TestFile<CR>
 nnoremap <LocalLeader>ts :silent! wa <bar> :TestNearest<CR>
 
