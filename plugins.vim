@@ -39,7 +39,7 @@ for s:url in split(s:repos)
       call chdir(s:original_dir)
     endif
   else
-    execute 'silent' '!git' 'clone' '--' shellescape(s:url) shellescape(s:repodir)
+    execute 'silent' '!git' 'clone' '--depth' '1' '--' shellescape(s:url) shellescape(s:repodir)
   endif
 endfor
 
