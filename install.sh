@@ -7,6 +7,7 @@ install_link() {
   ln -fs "$PWD/$1" "$HOME/$1"
 }
 
+install_link .config/nvim/coc-settings.json
 install_link .config/nvim/init.vim
 install_link .inputrc
 install_link .profile
