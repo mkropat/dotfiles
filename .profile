@@ -1,3 +1,6 @@
+#!/bin/sh
+# shellcheck disable=SC1090
+
 export PATH="$HOME/.local/bin:$PATH"
 
 alias ..="cd .."
@@ -11,4 +14,10 @@ if command -v nvim >/dev/null; then
 fi
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
-. "$HOME/.cargo/env"
+if [ -f ~/.secrets ]; then
+  . ~/.secrets
+fi
+
+if [ -f ~/.cargo/env ]; then
+  . ~/.cargo/env
+fi
