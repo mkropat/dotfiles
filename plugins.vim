@@ -12,14 +12,15 @@ let s:repos = [
 \ "https://github.com/justinmk/vim-gtfo.git",
 \ "https://github.com/mhinz/vim-grepper.git",
 \ "https://github.com/mkropat/vim-dwiw2015.git",
+\ "https://github.com/mkropat/vim-ezguifont.git",
 \ "https://github.com/morhetz/gruvbox.git",
 \ "https://github.com/nanotee/zoxide.vim.git",
-\ #{ repo_url: "https://github.com/neoclide/coc.nvim.git", branch: "release" },
 \ "https://github.com/tpope/vim-projectionist.git",
 \ "https://github.com/tpope/vim-sensible.git",
 \ "https://github.com/tpope/vim-sleuth.git",
 \ "https://github.com/vim-airline/vim-airline-themes.git",
 \ "https://github.com/vim-airline/vim-airline.git",
+\ #{ repo_url: "https://github.com/neoclide/coc.nvim.git", branch: "release" },
 \ ]
 
 let s:vimdir = split(&runtimepath, ",")[0]

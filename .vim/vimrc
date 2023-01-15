@@ -20,6 +20,7 @@ if executable('rg')
   let g:ackprg = 'rg --vimgrep'
 endif
 
+let g:ezguifont = 'IBM Plex Mono 11'
 let g:tt_use_defaults = 1
 let g:tt_taskfile = '~/Documents/tasks.md'
 
@@ -76,18 +77,12 @@ set clipboard=unnamed,unnamedplus
 
 autocmd FileType html nnoremap <buffer> gob :call system('xdg-open ' . expand('%:S'))<cr>
 
+nnoremap <C--> :DecreaseFontSize<CR>
+nnoremap <C-=> :IncreaseFontSize<CR>
+nnoremap <C-+> :IncreaseFontSize<CR>
+
 try
   colorscheme gruvbox
 catch /^Vim\%((\a\+)\)\=:E185/
   " oh well
 endtry
-
-if exists(":VimRSetFontAndSize")
-  VimRSetFontAndSize "IBM Plex Mono", 12
-else
-  try
-    set guifont=IBM\ Plex\ Mono:h11
-  catch /^E596/
-    "oh well
-  endtry
-endif
