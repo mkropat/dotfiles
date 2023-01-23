@@ -77,9 +77,10 @@ set clipboard=unnamed,unnamedplus
 
 autocmd FileType html nnoremap <buffer> gob :call system('xdg-open ' . expand('%:S'))<cr>
 
-nnoremap <C--> :DecreaseFontSize<CR>
-nnoremap <C-=> :IncreaseFontSize<CR>
-nnoremap <C-+> :IncreaseFontSize<CR>
+nnoremap <silent> <C--> :DecreaseFont<CR>
+nnoremap <silent> <C-=> :IncreaseFont<CR>
+nnoremap <silent> <C-+> :IncreaseFont<CR>
+nnoremap <silent> <C-0> :ResetFontSize<CR>
 
 try
   colorscheme gruvbox
