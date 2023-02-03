@@ -10,6 +10,7 @@ let s:repos = [
 \ "https://github.com/junegunn/fzf.vim.git",
 \ "https://github.com/justinmk/vim-dirvish.git",
 \ "https://github.com/justinmk/vim-gtfo.git",
+\ "https://github.com/kovisoft/paredit.git",
 \ "https://github.com/mhinz/vim-grepper.git",
 \ "https://github.com/mkropat/vim-dwiw2015.git",
 \ "https://github.com/mkropat/vim-ezguifont.git",
