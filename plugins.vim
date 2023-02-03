@@ -31,6 +31,15 @@ if !isdirectory(s:plugdir)
   call mkdir(s:plugdir, "p")
 endif
 
+for s:name in readdir(s:plugdir)
+  let s:path = s:plugdir . "/" . s:name
+  if isdirectory(s:path)
+    let s:original_dir = chdir(s:path)
+    silent !git pull --ff-only
+    call chdir(s:original_dir)
+  endif
+endfor
+
 for s:repo in s:repos
   if type(s:repo) == v:t_string
     let s:repo = #{ repo_url: s:repo }
@@ -38,16 +47,7 @@ for s:repo in s:repos
 
   let s:name = fnamemodify(s:repo["repo_url"], ":t:r")
   let s:repodir = s:plugdir . "/" . s:name
-  if isdirectory(s:repodir)
-    let s:original_dir = chdir(s:repodir)
-    if !empty(s:original_dir)
-      if has_key(s:repo, "branch")
-        execute "silent" "!git" "switch" s:repo["branch"]
-      endif
-      silent !git pull --ff-only
-      call chdir(s:original_dir)
-    endif
-  else
+  if !isdirectory(s:repodir)
     if has_key(s:repo, "branch")
       execute "silent" "!git" "clone" "--branch" s:repo["branch"] "--depth" "1" "--" shellescape(s:repo["repo_url"]) shellescape(s:repodir)
     else
