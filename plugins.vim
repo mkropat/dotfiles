@@ -5,6 +5,7 @@
 " 3. Execute `:so %`
 
 let s:repos = [
+\ "https://github.com/Olical/conjure.git",
 \ "https://github.com/jlanzarotta/bufexplorer.git",
 \ "https://github.com/junegunn/fzf.git",
 \ "https://github.com/junegunn/fzf.vim.git",
