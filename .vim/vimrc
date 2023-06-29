@@ -75,7 +75,16 @@ nnoremap <Leader>d "=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>P
 
 set clipboard=unnamed,unnamedplus
 
-autocmd FileType html nnoremap <buffer> gob :call system('xdg-open ' . expand('%:S'))<cr>
+autocmd! FileType html nnoremap <buffer> gob :call system('xdg-open ' . expand('%:S'))<cr>
+
+function! s:handle_dir_changed()
+  let is_dir_buffer = bufname() =~ '^/.*/$'
+  let is_empty_buffer = empty(bufname()) && getline(1, '$') == ['']
+  if is_dir_buffer || is_empty_buffer
+    execute 'Dirvish' getcwd()
+  endif
+endfunction
+autocmd! User ZoxideDirChanged call s:handle_dir_changed()
 
 nnoremap <silent> <C--> :DecreaseFont<CR>
 nnoremap <silent> <C-=> :IncreaseFont<CR>
