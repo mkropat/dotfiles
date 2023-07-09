@@ -9,6 +9,9 @@ prompt pure
 HISTFILE=~/.zsh_history
 HISTFILESIZE=100000
 HISTSIZE=100000
+SAVEHIST=100000
+setopt incappendhistory
+setopt sharehistory
 
 bindkey -e # use emacs keybindings
 
