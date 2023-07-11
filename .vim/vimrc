@@ -60,6 +60,7 @@ autocmd BufReadPost * if &buftype ==# 'quickfix' | nnoremap <buffer> <CR> <CR> |
 autocmd FileType html setlocal spell
 autocmd FileType markdown setlocal spell
 
+nnoremap <Leader>gs :Grepper<CR>
 nnoremap <Leader>tf :silent! wall <bar> :TestFile<CR>
 nnoremap <Leader>ts :silent! wall <bar> :TestNearest<CR>
 
