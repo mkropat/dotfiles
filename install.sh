@@ -22,6 +22,7 @@ install_repo() {
 
 configure_firefox() {
   for d in ~/.mozilla/firefox/*.*/; do
+    if ! [ -d "$d" ]; then return; fi
     if [ -f "$d/user.js" ]; then continue; fi
     echo "Customizing:  $(basename "$d") Firefox profile"
     ln -fs "$PWD/firefox/user.js" "$d/user.js"
