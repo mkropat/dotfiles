@@ -3,10 +3,11 @@
 set -e
 
 install_link() {
-  if [ -f "$HOME/$1" ]; then return; fi
-  echo "Installing:   $1"
+  printf '%-50s' "$1"
+  if [ -f "$HOME/$1" ]; then echo "skipping (exists)"; return; fi
   mkdir -p "$HOME/$(dirname "$1")"
   ln -fs "$PWD/$1" "$HOME/$1"
+  echo "installed"
 }
 
 install_repo() {
@@ -23,16 +24,18 @@ install_repo() {
 configure_firefox() {
   for d in ~/.mozilla/firefox/*.*/; do
     if ! [ -d "$d" ]; then return; fi
-    if [ -f "$d/user.js" ]; then continue; fi
-    echo "Customizing:  $(basename "$d") Firefox profile"
+    printf '%-50s' "$(basename "$d")"
+    if [ -f "$d/user.js" ]; then echo "skipping (exists)"; continue; fi
     ln -fs "$PWD/firefox/user.js" "$d/user.js"
+    echo "installed"
   done
 }
 
 stub_file() {
-  if [ -f "$HOME/$1" ]; then return; fi
-  echo "Stubbing:     $1"
+  printf '%-50s' "$1"
+  if [ -f "$HOME/$1" ]; then echo "skipping (exists)"; return; fi
   (umask 077; touch "$HOME/$1")
+  echo "stubbed"
 }
 
 install_link .config/nvim/coc-settings.json
