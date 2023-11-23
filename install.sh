@@ -31,6 +31,32 @@ configure_firefox() {
   done
 }
 
+configure_git() {
+  echo 'Configuring git'
+  git config --global --replace-all --type=bool push.autoSetupRemote true
+  git config --global --type=bool rebase.autoStash true
+  git config --global --type=bool rebase.updateRefs true
+  git config --global core.autocrlf input
+  git config --global core.commentChar auto
+  git config --global init.defaultBranch main
+  git config --global pull.ff only
+  git config --global oh-my-zsh.hide-info 1
+
+  git config --global alias.ca 'commit --amend --no-edit'
+  git config --global alias.ci 'commit --verbose'
+  git config --global alias.dc 'diff --cached'
+  git config --global alias.di diff
+  git config --global alias.fp 'push --force-with-lease'
+  git config --global alias.fpstack "\!git log --decorate=short --pretty='format:%D' origin/main.. | sed 's/, /\\n/g; s/HEAD -> //'  | grep -Ev '/|^$' | xargs git push --force-with-lease origin"
+  git config --global alias.l 'log --oneline'
+  git config --global alias.pullrb 'pull --rebase'
+  git config --global alias.rb '!f() { if [ $# -eq 0 ]; then set -- origin/main; git fetch origin main; fi && git rebase "$@"; }; f'
+  git config --global alias.rc 'rebase --continue'
+  git config --global alias.ri '!f() { if [ $# -eq 0 ]; then set -- origin/main; fi; git rebase --interactive --keep-base "$@"; }; f'
+  git config --global alias.st 'status --short'
+  git config --global alias.sw '!f() { if [ $# -gt 0 ]; then git switch "$@"; else git branch --sort=-committerdate | fzf | xargs git switch; fi; }; f'
+}
+
 stub_file() {
   printf '%-50s' "$1"
   if [ -f "$HOME/$1" ]; then echo "skipping (exists)"; return; fi
@@ -50,6 +76,7 @@ install_link .zshrc
 stub_file .secrets
 
 configure_firefox
+configure_git
 
 install_repo https://github.com/junegunn/fzf.git
 install_repo https://github.com/sindresorhus/pure.git
