@@ -50,6 +50,7 @@ nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
 autocmd BufReadPost * if expand('%') ==# g:vimrc | nnoremap <buffer> <CR> :update <Bar> source %<CR> | endif
 nnoremap <C-^> :A<CR>
+vnoremap <Leader>s :sort<CR>
 
 xnoremap / y/<C-R>"<CR>
 
