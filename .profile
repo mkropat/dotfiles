@@ -1,6 +1,7 @@
 #!/bin/sh
 # shellcheck disable=SC1090
 
+export CDPATH="$HOME/Code"
 export LESS="--no-init --quit-if-one-screen --raw-control-chars"
 export PATH="$HOME/.local/bin:$PATH"
 
