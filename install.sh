@@ -69,6 +69,7 @@ install_link .config/nvim/init.vim
 install_link .inputrc
 install_link .profile
 install_link .ripgreprc
+install_link .tmux.conf
 install_link .vim/vimrc
 install_link .zshenv
 install_link .zshrc
