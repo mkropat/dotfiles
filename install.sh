@@ -66,9 +66,11 @@ stub_file() {
 
 cd "$(dirname "$0")"
 
+install_link .config/espanso/match/mlk.yml
 install_link .config/nvim/coc-settings.json
 install_link .config/nvim/init.vim
 install_link .inputrc
+install_link .local/bin/newdroplet
 install_link .profile
 install_link .ripgreprc
 install_link .tmux.conf

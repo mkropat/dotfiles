@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+size=s-1vcpu-1gb
+image=docker-20-04
+ssh_keys=${DO_SSH_KEYS:-}
+
+args=()
+while [[ "$#" -gt 0 ]]; do
+  case $1 in
+    --image)    image="$2";     shift ;;
+    --size)     size="$2";      shift ;;
+    --ssh-keys) ssh_keys="$2";  shift ;;
+    *)
+      args+=("$1")
+  esac
+  shift
+done
+
+ip=$(doctl compute droplet create \
+  --image "$image" \
+  --size "$size" \
+  --ssh-keys "$ssh_keys" \
+  --wait \
+  --format PublicIPv4 \
+  --no-header \
+  "${args[@]}")
+
+echo "Created. Connecting to $ip…" >&2
+while ! ssh "root@$ip"; do
+  sleep 5 # avoid triggering ufw rate limit
+done

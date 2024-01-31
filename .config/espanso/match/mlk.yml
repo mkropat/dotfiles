@@ -1,0 +1,10 @@
+matches:
+  - trigger: ":newuser"
+    replace: "useradd -m -s $(which zsh || which bash) {{user}}"
+    vars:
+      - name: 'user'
+        type: shell
+        params:
+          cmd: 'echo $USER'
+  - trigger: ":bootstrap"
+    replace: "mkdir -p ~/Code && cd ~/Code && git clone https://github.com/mkropat/dotfiles.git && ~/Code/dotfiles/install.sh && exec $SHELL -l"
