@@ -60,9 +60,11 @@ configure_git() {
 stub_file() {
   printf '%-50s' "$1"
   if [ -f "$HOME/$1" ]; then echo "skipping (exists)"; return; fi
-  (umask 077; touch "$HOME/$1")
+  touch "$HOME/$1"
   echo "stubbed"
 }
+
+cd "$(dirname "$0")"
 
 install_link .config/nvim/coc-settings.json
 install_link .config/nvim/init.vim
@@ -74,7 +76,7 @@ install_link .vim/vimrc
 install_link .zshenv
 install_link .zshrc
 
-stub_file .secrets
+(umask 077; stub_file .secrets)
 
 configure_firefox
 configure_git
