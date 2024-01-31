@@ -1,10 +1,14 @@
 matches:
   - trigger: ":newuser"
-    replace: "useradd -m -s $(which zsh || which bash) {{user}}"
+    replace: "useradd -m -s $(which zsh || which bash) {{user}} && sudo -i -u {{user}} sh -c 'mkdir ~/.ssh && echo \"{{ssh_key}}\" > ~/.ssh/authorized_keys'"
     vars:
       - name: 'user'
         type: shell
         params:
           cmd: 'echo $USER'
+      - name: 'ssh_key'
+        type: shell
+        params:
+          cmd: 'echo $(<~/.ssh/id_ed25519.pub)'
   - trigger: ":bootstrap"
     replace: "mkdir -p ~/Code && cd ~/Code && git clone https://github.com/mkropat/dotfiles.git && ~/Code/dotfiles/install.sh && exec $SHELL -l"
