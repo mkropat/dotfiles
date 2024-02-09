@@ -7,7 +7,7 @@ image=docker-20-04
 ssh_keys=${DO_SSH_KEYS:-}
 
 args=()
-while [[ "$#" -gt 0 ]]; do
+while (( $# > 0 )); do
   case $1 in
     --image)    image="$2";     shift ;;
     --size)     size="$2";      shift ;;
@@ -18,7 +18,12 @@ while [[ "$#" -gt 0 ]]; do
   shift
 done
 
-ip=$(doctl compute droplet create \
+if (( ${#args[@]} == 0 )); then
+  echo 'Usage: newdroplet NAME' >&2
+  exit 1
+fi
+
+ip=$(set -x; doctl compute droplet create \
   --image "$image" \
   --size "$size" \
   --ssh-keys "$ssh_keys" \
