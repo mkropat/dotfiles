@@ -1,6 +1,6 @@
 matches:
   - trigger: ":newuser"
-    replace: "useradd -m -s $(which zsh || which bash) {{user}} && sudo -i -u {{user}} sh -c 'mkdir ~/.ssh && echo \"{{ssh_key}}\" > ~/.ssh/authorized_keys'"
+    replace: "sudo useradd -m -s $(which zsh || which bash) {{user}} && sudo -i -u {{user}} sh -c 'mkdir ~/.ssh && echo \"{{ssh_key}}\" > ~/.ssh/authorized_keys'"
     vars:
       - name: 'user'
         type: shell
