@@ -19,10 +19,6 @@ if command -v zoxide >/dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
-if [[ -f ~/.rbenv/bin/rbenv ]]; then
-  eval "$(~/.rbenv/bin/rbenv init - zsh)"
-fi
-
 if [[ -f ~/Apps/miniconda3/bin/conda ]]; then
   eval "$("$HOME/Apps/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 fi
