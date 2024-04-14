@@ -12,3 +12,5 @@ matches:
           cmd: 'echo $(<~/.ssh/id_ed25519.pub)'
   - trigger: ":bootstrap"
     replace: "mkdir -p ~/Code && cd ~/Code && git clone https://github.com/mkropat/dotfiles.git && ~/Code/dotfiles/install.sh && exec $SHELL -l"
+  - trigger: ":shrug"
+    replace: " ¯\\_ (ツ)_/¯"
