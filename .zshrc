@@ -15,6 +15,12 @@ setopt sharehistory
 
 bindkey -e # use emacs keybindings
 
+if command -v bat >/dev/null; then
+  alias cat=bat
+elif command -v batcat >/dev/null; then
+  alias cat=batcat
+fi
+
 if command -v zoxide >/dev/null; then
   eval "$(zoxide init zsh)"
 fi
