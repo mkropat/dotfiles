@@ -11,6 +11,12 @@ alias ....="cd ../../.."
 
 alias be="bundle exec"
 
+if command -v bat >/dev/null; then
+  alias cat='bat -p'
+elif command -v batcat >/dev/null; then
+  alias cat='batcat -p'
+fi
+
 export EDITOR=vim
 if command -v nvim >/dev/null; then
   export EDITOR=nvim
