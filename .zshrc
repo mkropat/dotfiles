@@ -15,6 +15,10 @@ setopt sharehistory
 
 bindkey -e # use emacs keybindings
 
+if command -v atuin >/dev/null; then
+  eval "$(atuin init zsh)"
+fi
+
 if command -v zoxide >/dev/null; then
   eval "$(zoxide init zsh)"
 fi
