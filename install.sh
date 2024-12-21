@@ -60,13 +60,14 @@ configure_git() {
 stub_file() {
   printf '%-50s' "$1"
   if [ -f "$HOME/$1" ]; then echo "skipping (exists)"; return; fi
+  if [ ! -d "$(dirname -- "$HOME/$1")" ]; then mkdir -p -- "$(dirname -- "$HOME/$1")"; fi
   touch "$HOME/$1"
   echo "stubbed"
 }
 
 cd "$(dirname "$0")"
 
-mkdir -p ~/.ssh
+stub_file .ssh/authorized_keys
 
 install_link .config/atuin/config.toml
 install_link .config/espanso/match/mlk.yml
