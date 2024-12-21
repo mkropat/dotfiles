@@ -69,7 +69,7 @@ cd "$(dirname "$0")"
 
 stub_file .ssh/authorized_keys
 if [ ! -f ~/.ssh/id_ed25519 ]; then
-  ssh-keygen -t ed25519
+  ssh-keygen -f ~/.ssh/id_ed25519 -N '' -t ed25519
 fi
 
 install_link .config/atuin/config.toml
