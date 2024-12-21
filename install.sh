@@ -12,7 +12,7 @@ install_link() {
 
 install_repo() {
   dir_name=$(basename "$1" .git)
-  printf '%s... ' "$dir_name"
+  printf 'Updating %s.git… ' "$dir_name"
   if [ -d "$HOME/Apps/$dir_name" ]; then
     (cd "$HOME/Apps/$dir_name"; git pull --ff-only)
   else
@@ -32,7 +32,7 @@ configure_firefox() {
 }
 
 configure_git() {
-  echo 'Configuring git'
+  printf 'Configuring git… '
   git config --global --replace-all --type=bool push.autoSetupRemote true
   git config --global --type=bool rebase.autoStash true
   git config --global --type=bool rebase.updateRefs true
@@ -55,6 +55,7 @@ configure_git() {
   git config --global alias.ri '!f() { if [ $# -eq 0 ]; then set -- origin/main; fi; git rebase --interactive --keep-base "$@"; }; f'
   git config --global alias.st 'status --short'
   git config --global alias.sw '!f() { if [ $# -gt 0 ]; then git switch "$@"; else git branch --sort=-committerdate | fzf | xargs git switch; fi; }; f'
+  echo 'done'
 }
 
 stub_file() {
