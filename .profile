@@ -28,6 +28,7 @@ if [ -f ~/.secrets ]; then
 fi
 
 if [ -f ~/Apps/asdf/asdf.sh ]; then
+  export ASDF_DIR=~/Apps/asdf
   . ~/Apps/asdf/asdf.sh
 fi
 
