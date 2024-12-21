@@ -66,6 +66,8 @@ stub_file() {
 
 cd "$(dirname "$0")"
 
+mkdir -p ~/.ssh
+
 install_link .config/atuin/config.toml
 install_link .config/espanso/match/mlk.yml
 install_link .config/nvim/coc-settings.json
