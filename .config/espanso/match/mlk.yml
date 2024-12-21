@@ -10,7 +10,42 @@ matches:
         type: shell
         params:
           cmd: 'echo $(<~/.ssh/id_ed25519.pub)'
+
   - trigger: ":bootstrap"
     replace: "mkdir -p ~/Code && cd ~/Code && git clone https://github.com/mkropat/dotfiles.git && ~/Code/dotfiles/install.sh && exec $SHELL -l"
+
   - trigger: ":shrug"
     replace: " ¯\\_ (ツ)_/¯"
+
+  - trigger: ":red"
+    replace: "\\033[91m"
+
+  - trigger: ":green"
+    replace: "\\033[92m"
+
+  - trigger: ":yellow"
+    replace: "\\033[93m"
+
+  - trigger: ":blue"
+    replace: "\\033[94m"
+
+  - trigger: ":magenta"
+    replace: "\\033[95m"
+
+  - trigger: ":cyan"
+    replace: "\\033[96m"
+
+  - trigger: ":white"
+    replace: "\\033[97m"
+
+  - trigger: ":bold"
+    replace: "\\033[1m"
+
+  - trigger: ":underline"
+    replace: "\\033[4m"
+
+  - trigger: ":italic"
+    replace: "\\033[3m"
+
+  - trigger: ":reset"
+    replace: "\\033[0m"
