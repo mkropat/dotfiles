@@ -68,6 +68,9 @@ stub_file() {
 cd "$(dirname "$0")"
 
 stub_file .ssh/authorized_keys
+if [ ! -f ~/.ssh/id_ed25519 ]; then
+  ssh-keygen -t ed25519
+fi
 
 install_link .config/atuin/config.toml
 install_link .config/espanso/match/mlk.yml
