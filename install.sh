@@ -4,7 +4,8 @@ set -e
 
 install_link() {
   printf '%-50s' "$1"
-  if [ -f "$HOME/$1" ]; then echo "skipping (exists)"; return; fi
+  if [ -L "$HOME/$1" ]; then echo "\033[2mskipping (exists)\033[0m"; return; fi
+  if [ -f "$HOME/$1" ]; then echo "skipping (\033[93mwarning: not a link\033[0m)"; return; fi
   mkdir -p "$HOME/$(dirname "$1")"
   ln -fs "$PWD/$1" "$HOME/$1"
   echo "installed"
@@ -25,7 +26,7 @@ configure_firefox() {
   for d in ~/.mozilla/firefox/*.*/; do
     if ! [ -d "$d" ]; then return; fi
     printf '%-50s' "$(basename "$d")"
-    if [ -f "$d/user.js" ]; then echo "skipping (exists)"; continue; fi
+    if [ -f "$d/user.js" ]; then echo "\033[2mskipping (exists)\033[0m"; continue; fi
     ln -fs "$PWD/firefox/user.js" "$d/user.js"
     echo "installed"
   done
@@ -60,7 +61,7 @@ configure_git() {
 
 stub_file() {
   printf '%-50s' "$1"
-  if [ -f "$HOME/$1" ]; then echo "skipping (exists)"; return; fi
+  if [ -f "$HOME/$1" ]; then echo "\033[2mskipping (exists)\033[0m"; return; fi
   if [ ! -d "$(dirname -- "$HOME/$1")" ]; then mkdir -p -- "$(dirname -- "$HOME/$1")"; fi
   touch "$HOME/$1"
   echo "stubbed"
