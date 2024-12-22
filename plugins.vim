@@ -21,8 +21,11 @@ let s:repos = [
 \ "https://github.com/tpope/vim-sleuth.git",
 \ "https://github.com/vim-airline/vim-airline-themes.git",
 \ "https://github.com/vim-airline/vim-airline.git",
-\ #{ repo_url: "https://github.com/neoclide/coc.nvim.git", branch: "release" },
 \ ]
+
+if executable('node')
+  call add(s:repos, #{ repo_url: "https://github.com/neoclide/coc.nvim.git", branch: "release" })
+endif
 
 let s:vimdir = split(&runtimepath, ",")[0]
 let s:plugdir = s:vimdir . "/pack/bundle/start"
