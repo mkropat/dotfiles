@@ -93,8 +93,13 @@ nnoremap <silent> <C-=> :IncreaseFont<CR>
 nnoremap <silent> <C-+> :IncreaseFont<CR>
 nnoremap <silent> <C-0> :ResetFontSize<CR>
 
-try
-  colorscheme gruvbox
-catch /^Vim\%((\a\+)\)\=:E185/
-  " oh well
-endtry
+if has('gui_running')
+  try
+    colorscheme gruvbox
+  catch /^Vim\%((\a\+)\)\=:E185/
+    " oh well
+  endtry
+else
+  let g:airline_theme = 'luna'
+  colorscheme darkblue
+endif
