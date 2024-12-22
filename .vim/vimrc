@@ -6,6 +6,8 @@ set shiftwidth=2
 set tabstop=2
 set wildignorecase
 
+set clipboard=unnamed,unnamedplus
+
 let maplocalleader = "\<Space>"
 
 if !exists('g:vimrc')
@@ -48,22 +50,16 @@ nnoremap g. :execute 'edit' g:vimrc<CR>
 nnoremap g/ :execute 'edit' g:vimplugins<CR>
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
-autocmd BufReadPost * if expand('%') ==# g:vimrc | nnoremap <buffer> <CR> :update <Bar> source %<CR> | endif
 nnoremap <C-^> :A<CR>
 vnoremap <Leader>s :sort<CR>
 
 xnoremap / y/<C-R>"<CR>
 
 nnoremap <silent> <CR> :wall <Bar> :TestFile<CR>
-autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
-autocmd BufReadPost * if &buftype ==# 'quickfix' | nnoremap <buffer> <CR> <CR> | endif
-
-autocmd FileType html setlocal spell
-autocmd FileType markdown setlocal spell
-
 nnoremap <Leader>gs :Grepper<CR>
 nnoremap <Leader>tf :silent! wall <bar> :TestFile<CR>
 nnoremap <Leader>ts :silent! wall <bar> :TestNearest<CR>
+nnoremap <Leader>d "=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>P
 
 set foldlevel=99
 set foldmethod=indent
@@ -73,11 +69,10 @@ nnoremap <Leader>3 :set foldlevel=3<cr>
 nnoremap <Leader>4 :set foldlevel=4<cr>
 nnoremap <Leader>0 :set foldlevel=99<cr>
 
-nnoremap <Leader>d "=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>P
-
-set clipboard=unnamed,unnamedplus
-
-autocmd! FileType html nnoremap <buffer> gob :call system('xdg-open ' . expand('%:S'))<cr>
+nnoremap <silent> <C--> :DecreaseFont<CR>
+nnoremap <silent> <C-=> :IncreaseFont<CR>
+nnoremap <silent> <C-+> :IncreaseFont<CR>
+nnoremap <silent> <C-0> :ResetFontSize<CR>
 
 function! s:handle_dir_changed()
   let is_dir_buffer = bufname() =~ '^/.*/$'
@@ -86,12 +81,19 @@ function! s:handle_dir_changed()
     execute 'Dirvish' getcwd()
   endif
 endfunction
-autocmd! User ZoxideDirChanged call s:handle_dir_changed()
 
-nnoremap <silent> <C--> :DecreaseFont<CR>
-nnoremap <silent> <C-=> :IncreaseFont<CR>
-nnoremap <silent> <C-+> :IncreaseFont<CR>
-nnoremap <silent> <C-0> :ResetFontSize<CR>
+augroup Dotfiles
+  autocmd!
+  autocmd BufReadPost * if expand('%') ==# g:vimrc | nnoremap <buffer> <CR> :update <Bar> source %<CR> | endif
+  autocmd BufReadPost * if &buftype ==# 'quickfix' | nnoremap <buffer> <CR> <CR> | endif
+  autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
+
+  autocmd FileType html setlocal spell
+  autocmd FileType markdown setlocal spell
+  autocmd FileType html nnoremap <buffer> gob :call system('xdg-open ' . expand('%:S'))<cr>
+
+  autocmd User ZoxideDirChanged call s:handle_dir_changed()
+augroup END
 
 if has('gui_running')
   try
