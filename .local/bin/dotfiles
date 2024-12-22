@@ -3,6 +3,6 @@
 set -e
 
 cd ~/Code/dotfiles
-printf 'Updating dotfiles.git… '
+printf 'Updating dotfiles.git…                            '
 git pull --ff-only
 exec ./install.sh
