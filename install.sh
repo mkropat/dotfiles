@@ -94,5 +94,8 @@ install_link .zshrc
 configure_firefox
 configure_git
 
-install_repo https://github.com/junegunn/fzf.git
 install_repo https://github.com/sindresorhus/pure.git
+
+install_repo https://github.com/junegunn/fzf.git
+~/Apps/fzf/install --key-bindings --completion --no-update-rc
+ln -fs ~/Apps/fzf/bin/fzf ~/.local/bin/fzf
