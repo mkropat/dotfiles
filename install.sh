@@ -18,7 +18,7 @@ install_repo() {
     (cd "$HOME/Apps/$dir_name"; git pull --ff-only)
   else
     mkdir -p ~/Apps
-    (cd ~/Apps; git clone "$1")
+    (cd ~/Apps; git clone --depth 1 "$1")
   fi
 }
 
