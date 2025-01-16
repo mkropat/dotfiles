@@ -97,5 +97,7 @@ configure_git
 install_repo https://github.com/sindresorhus/pure.git
 
 install_repo https://github.com/junegunn/fzf.git
-~/Apps/fzf/install --key-bindings --completion --no-update-rc
-ln -fs ~/Apps/fzf/bin/fzf ~/.local/bin/fzf
+if [ ! -L ~/.local/bin/fzf ]; then
+  ~/Apps/fzf/install --key-bindings --completion --no-update-rc
+  ln -fs ~/Apps/fzf/bin/fzf ~/.local/bin/fzf
+fi
