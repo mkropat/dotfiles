@@ -27,11 +27,6 @@ if [ -f ~/.secrets ]; then
   . ~/.secrets
 fi
 
-if [ -f ~/Apps/asdf/asdf.sh ]; then
-  export ASDF_DIR=~/Apps/asdf
-  . ~/Apps/asdf/asdf.sh
-fi
-
 if [ -f ~/.cargo/env ]; then
   . ~/.cargo/env
 fi
