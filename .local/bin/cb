@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Exit if no data is being piped in
+if [ -t 0 ]; then
+  printf 'Usage: pipe data to cb, e.g. echo "hello" | cb\n' >&2
+  exit 2
+fi
+
+if command -v pbcopy >/dev/null 2>&1; then
+  pbcopy
+elif command -v wl-copy >/dev/null 2>&1; then
+  wl-copy
+elif command -v xclip >/dev/null 2>&1; then
+  # -selection clipboard targets the clipboard selection (so Ctrl+V works)
+  xclip -selection clipboard -in
+elif command -v xsel >/dev/null 2>&1; then
+  xsel --clipboard --input
+elif command -v termux-clipboard-set >/dev/null 2>&1; then
+  termux-clipboard-set
+elif command -v clip.exe >/dev/null 2>&1; then
+  # WSL: clip.exe expects CRLF or LF; piping works
+  clip.exe
+else
+  printf 'Error: no clipboard utility found. Install one of: pbcopy, wl-copy, xclip, xsel, termux-clipboard-set, clip.exe\n' >&2
+  exit 1
+fi
