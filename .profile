@@ -10,6 +10,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 alias be="bundle exec"
+alias dc="docker compose"
 
 if command -v bat >/dev/null; then
   alias cat='bat -p'
