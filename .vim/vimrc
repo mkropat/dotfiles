@@ -1,5 +1,7 @@
-set guioptions+=k
-set guioptions-=T
+if exists('+guioptions')
+  set guioptions+=k
+  set guioptions-=T
+endif
 
 set expandtab
 set shiftwidth=2
