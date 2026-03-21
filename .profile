@@ -24,7 +24,7 @@ if command -v nvim >/dev/null; then
 fi
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
-if [ -f ~/.secrets ]; then
+if [ -r ~/.secrets ]; then
   . ~/.secrets
 fi
 

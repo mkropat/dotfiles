@@ -61,7 +61,7 @@ configure_git() {
 
 stub_file() {
   printf '%-50s' "$1"
-  if [ -f "$HOME/$1" ]; then echo "\033[2mskipping (exists)\033[0m"; return; fi
+  if [ -e "$HOME/$1" ]; then echo "\033[2mskipping (exists)\033[0m"; return; fi
   if [ ! -d "$(dirname -- "$HOME/$1")" ]; then mkdir -p -- "$(dirname -- "$HOME/$1")"; fi
   touch "$HOME/$1"
   echo "stubbed"
@@ -69,9 +69,11 @@ stub_file() {
 
 cd "$(dirname "$0")"
 
-stub_file .ssh/authorized_keys
-if [ ! -f ~/.ssh/id_ed25519 ]; then
-  ssh-keygen -f ~/.ssh/id_ed25519 -N '' -t ed25519
+if [ -r .ssh ]; then
+  stub_file .ssh/authorized_keys
+  if [ ! -f ~/.ssh/id_ed25519 ]; then
+    ssh-keygen -f ~/.ssh/id_ed25519 -N '' -t ed25519
+  fi
 fi
 
 install_link .config/atuin/config.toml
