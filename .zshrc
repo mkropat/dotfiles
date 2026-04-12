@@ -33,3 +33,10 @@ fi
 if [[ -f ~/Apps/miniconda3/bin/conda ]]; then
   eval "$("$HOME/Apps/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 fi
+
+if command -v bat >/dev/null; then
+  alias cat=bat
+elif command -v batcat >/dev/null; then
+  alias cat=batcat
+fi
+export BAT_STYLE=changes,grid,header-filename,snip
