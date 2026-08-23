@@ -4,7 +4,7 @@
 export CDPATH="$HOME/Code"
 export LESS="--no-init --quit-if-one-screen --raw-control-chars"
 export PATH="$HOME/.local/bin:$PATH"
-export SSH_AUTH_SOCK="/run/user/$(id -u)/keyring/ssh"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/keyring/ssh"
 
 alias ..="cd .."
 alias ...="cd ../.."
