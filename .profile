@@ -13,10 +13,13 @@ alias ....="cd ../../.."
 alias be="bundle exec"
 alias dc="docker compose"
 
-export EDITOR=vim
+export EDITOR=vi
 if command -v nvim >/dev/null; then
   export EDITOR=nvim
+elif command -v vim >/dev/null; then
+  export EDITOR=vim
 fi
+
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 if [ -r ~/.secrets ]; then
