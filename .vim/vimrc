@@ -10,8 +10,6 @@ set wildignorecase
 
 set clipboard=unnamed,unnamedplus
 
-let maplocalleader = "\<Space>"
-
 if !exists('g:vimrc')
   let g:vimrc = $MYVIMRC
 endif
@@ -24,22 +22,26 @@ if executable('rg')
   let g:ackprg = 'rg --vimgrep'
 endif
 
-let g:ezguifont = 'IBM Plex Mono 11'
-let g:tt_use_defaults = 1
-let g:tt_taskfile = '~/Documents/tasks.md'
-
 if has('win32')
   let g:gtfo#terminals = { 'win': 'powershell -NoLogo -NoExit -Command' }
 endif
 
-let g:zoxide_hook = 'pwd'
+if has('autocmd') && !&compatible
+  let maplocalleader = "\<Space>"
 
-try
-  unmap <C-f>
-  unmap! <C-f>
-catch
-  " oh well
-endtry
+  let g:ezguifont = 'IBM Plex Mono 11'
+  let g:tt_use_defaults = 1
+  let g:tt_taskfile = '~/Documents/tasks.md'
+
+  let g:zoxide_hook = 'pwd'
+
+  try
+    unmap <C-f>
+    unmap! <C-f>
+  catch
+    " oh well
+  endtry
+endif
 
 nnoremap <C-@> :Files<CR>
 nnoremap <C-Space> :Files<CR>
@@ -76,13 +78,15 @@ nnoremap <silent> <C-=> :IncreaseFont<CR>
 nnoremap <silent> <C-+> :IncreaseFont<CR>
 nnoremap <silent> <C-0> :ResetFontSize<CR>
 
-function! s:handle_dir_changed()
-  let is_dir_buffer = bufname() =~ '^/.*/$'
-  let is_empty_buffer = empty(bufname()) && getline(1, '$') == ['']
-  if is_dir_buffer || is_empty_buffer
-    execute 'Dirvish' getcwd()
-  endif
-endfunction
+if has('autocmd') && !&compatible
+  function! s:handle_dir_changed()
+    let is_dir_buffer = bufname() =~ '^/.*/$'
+    let is_empty_buffer = empty(bufname()) && getline(1, '$') == ['']
+    if is_dir_buffer || is_empty_buffer
+      execute 'Dirvish' getcwd()
+    endif
+  endfunction
+endif
 
 augroup Dotfiles
   autocmd!
