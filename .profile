@@ -1,6 +1,7 @@
 #!/bin/sh
 # shellcheck disable=SC1090
 
+export BAT_STYLE=changes,grid,header-filename,snip
 export CDPATH="$HOME/Code"
 export LESS="--no-init --quit-if-one-screen --raw-control-chars"
 export LIBVIRT_DEFAULT_URI=qemu:///system

@@ -48,4 +48,3 @@ if command -v bat >/dev/null; then
 elif command -v batcat >/dev/null; then
   alias cat=batcat
 fi
-export BAT_STYLE=changes,grid,header-filename,snip
