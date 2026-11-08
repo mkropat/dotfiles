@@ -5,9 +5,22 @@ if [[ -f ~/.fzf.zsh ]]; then
   source ~/.fzf.zsh
 fi
 
-fpath+=($HOME/Apps/pure)
-autoload -U promptinit; promptinit
-prompt pure
+if [[ -d $HOME/Apps/pure ]]; then
+  fpath+=($HOME/Apps/pure)
+  autoload -U promptinit; promptinit
+  prompt pure
+else
+  autoload -Uz colors && colors
+
+  # ---- One-line prompt ----
+  PROMPT='%F{cyan}%n%f@%F{cyan}%m%f %F{blue}%1~%f %F{magenta}❯%f '
+  RPROMPT='%(?..%F{red}[%?]%f)'
+
+  # ---- Nicer pasting / URL quoting ----
+  autoload -Uz bracketed-paste-magic url-quote-magic
+  zle -N bracketed-paste bracketed-paste-magic
+  zle -N self-insert url-quote-magic
+fi
 
 HISTFILE=~/.zsh_history
 HISTFILESIZE=100000

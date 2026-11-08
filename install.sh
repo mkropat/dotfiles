@@ -11,17 +11,6 @@ install_link() {
   echo "installed"
 }
 
-install_repo() {
-  dir_name=$(basename "$1" .git)
-  printf 'Updating %-43s' "$dir_name.git… "
-  if [ -d "$HOME/Apps/$dir_name" ]; then
-    (cd "$HOME/Apps/$dir_name"; git pull --ff-only)
-  else
-    mkdir -p ~/Apps
-    (cd ~/Apps; git clone --depth 1 "$1")
-  fi
-}
-
 configure_git() {
   printf 'Configuring git…                                  '
   git config --global --replace-all --type=bool push.autoSetupRemote true
@@ -86,5 +75,3 @@ done
 (umask 077; stub_file .secrets)
 
 configure_git
-
-install_repo https://github.com/sindresorhus/pure.git
