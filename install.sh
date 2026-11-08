@@ -22,16 +22,6 @@ install_repo() {
   fi
 }
 
-configure_firefox() {
-  for d in ~/.mozilla/firefox/*.*/; do
-    if ! [ -d "$d" ]; then return; fi
-    printf '%-50s' "$(basename "$d")"
-    if [ -f "$d/user.js" ]; then echo "\033[2mskipping (exists)\033[0m"; continue; fi
-    ln -fs "$PWD/firefox/user.js" "$d/user.js"
-    echo "installed"
-  done
-}
-
 configure_git() {
   printf 'Configuring git…                                  '
   git config --global --replace-all --type=bool push.autoSetupRemote true
@@ -95,7 +85,6 @@ done
 
 (umask 077; stub_file .secrets)
 
-configure_firefox
 configure_git
 
 install_repo https://github.com/sindresorhus/pure.git
