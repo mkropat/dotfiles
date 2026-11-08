@@ -55,7 +55,6 @@ if [ -r .ssh ]; then
   fi
 fi
 
-install_link .config/nvim/coc-settings.json
 install_link .config/nvim/init.vim
 install_link .inputrc
 install_link .profile
