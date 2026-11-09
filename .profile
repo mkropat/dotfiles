@@ -28,6 +28,20 @@ if [ -r ~/.secrets ]; then
   . ~/.secrets
 fi
 
+# zsh also reads this file, and zsh stops at a glob that has no match.
+if [ -n "${ZSH_VERSION:-}" ]; then
+  setopt no_nomatch
+fi
+for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/secrets.d/*.sh; do
+  if [ -r "$f" ]; then
+    . "$f"
+  fi
+done
+unset f
+if [ -n "${ZSH_VERSION:-}" ]; then
+  setopt nomatch
+fi
+
 if [ -f ~/.cargo/env ]; then
   . ~/.cargo/env
 fi
